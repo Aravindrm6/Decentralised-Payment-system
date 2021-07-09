@@ -1,0 +1,112 @@
+
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+  text-align:center;
+}
+p {
+  color: blue;
+  font-family: verdana;
+  font-size: 80%;
+  text-align:center;
+}
+div {
+  color: black;
+  font-family: verdana;
+  font-size: 130%;
+  text-align:center;
+}
+button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+{%block content %}
+<table class="center">
+    <tr>
+    <td>
+      <button class="collapsible">Show Location Log of Vehicle</button>
+      <div class="content">
+  <p>
+    {% for key, value in q.items %}
+  <p >Location {{ forloop.counter }}. {{ value }}</p>
+{% endfor %}
+  </p>
+</div>
+      <script type="text/javascript">
+        var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+      </script>
+    </div>
+    {% endblock %}
+    <form action="hi" method="post">
+  {% csrf_token%}
+  </td>
+  </tr>
+  </table>
+  <p><BUTTON name="p" value="{{p}}">Return to home page</BUTTON></p></form>
+</body>
+</html>

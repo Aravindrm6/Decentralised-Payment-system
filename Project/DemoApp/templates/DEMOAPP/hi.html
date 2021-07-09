@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	background-color: powderblue;
+}
+
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 200%;
+  text-align:center;
+}
+p {
+  color: red;
+  font-family: verdana;
+  font-size: 240%;
+  text-align:center;
+}
+div {
+  color: black;
+  font-family: verdana;
+  font-size: 130%;
+  text-align:center;
+}
+button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+.myButton {
+
+   background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+      position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+</style>
+</head>
+<body>
+
+<h1> Vehicle Registration and Status Verification</h1>
+<table class="center" style="width:50%">
+<tr>
+<form action="/reg" id="regForm" method="post">
+<td><div class="tab"> Register Vehicle</td>
+	<td><input type="number" placeholder="Enter price per km..." name="fname" required></td>
+<!-- One "tab" for each step in the form: -->
+	{% csrf_token%}
+  <td ><button id="un" type="submit" name="p" value="{{p}}" >Register</button> </td>
+</div>
+</tr>
+</form>
+<tr>
+<form action="/update" id="regForm" method="post">
+<td><div class="tab"> Update Vehicle Details</td>
+	<td><input type="text" placeholder="Enter Current location coordinates..." name="fname" required></td>
+	
+<!-- One "tab" for each step in the form: -->
+	{% csrf_token%}
+  <td ><button type="submit" name="p" value="{{p}}">Update</button> </td>
+</div>
+</form>
+</tr>
+</td>
+<tr>
+<form action="/timelog" id="regForm" method="post">
+<td><div class="tab"> Get Time Logs
+	</td>
+<!-- One "tab" for each step in the form: -->
+	{% csrf_token%}
+  <td ><button type="submit" name="p" value="{{p}}">Get Logs</button> </td>
+</div>
+</form>
+</tr>
+<tr>
+<form action="/locationlog" id="regForm" method="post">
+<td><div class="tab"> Get Location Logs</td>
+	</div>
+<!-- One "tab" for each step in the form: -->
+	{% csrf_token%}
+  <td ><button type="submit" name="p" value="{{p}}">Get Logs</button> </td>
+
+</form>
+</tr>
+<a href="index" class="myButton">Log Out</a>
+</table>
+</form>
+</body>
+</html>
